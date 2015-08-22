@@ -46,6 +46,8 @@ namespace ConsoleApplication1
 			//Console.WriteLine(flag);
 
 			PrintPascalTriangle();
+			PrintPascalTriangle2(10);
+
 			Console.ReadLine();
 		}
 
@@ -194,6 +196,51 @@ namespace ConsoleApplication1
 			return num;
 		}
 
+		public static void PrintPascalTriangle2(int RowNumber)
+		{
+			//initialize empty print number rows and columns
+			List<List<int>> printNumbers = new List<List<int>>(RowNumber);			
+
+			// loop through all rows
+			for (int idx = 0; idx <= RowNumber-1; idx++)
+			{
+				// initialize currentline with -1, the number -1 will be replaced with actual number
+				List<int> currentLine = Enumerable.Repeat(-1, idx+1).ToList();
+
+				// first number of each row is 1
+				currentLine[0]=1;
+
+				// current number position in the current line, start with 1, because the number in position 0 is 1
+				int currentLinePosition = 1;
+
+				// start from line 1
+				if(idx-1>=0)
+				{
+					List<int> previousLine = printNumbers[idx - 1];
+
+					for (int j = 0; j < previousLine.Count-1; j++)
+					{
+						currentLine[currentLinePosition] = previousLine[j] + previousLine[j + 1];
+						currentLinePosition++;						
+					}
+				}
+
+				// last number of each row is 1
+				currentLine[idx]=1;
+				printNumbers.Add(currentLine);
+			}
+
+			// print all line numbers
+			foreach (List<int> number in printNumbers)
+			{
+				foreach (int a in number)
+				{
+					Console.Write(string.Format("{0}  ",a));
+				}
+
+				Console.WriteLine();
+			}
+		}
 		/// <summary>
 		/// By using two-dimensional array of C# language, write C# program to display a table that 
 		/// represents a Pascal triangle of any size. 
