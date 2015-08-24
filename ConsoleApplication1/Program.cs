@@ -27,7 +27,7 @@ namespace ConsoleApplication1
 			//}	
 
 			DateTime startTime = DateTime.Now;
-			long number =0;
+			long number = 0;
 			number = CalculateWays(4);
 
 			Console.WriteLine(string.Format("1. End Time {0} -- {1}", (DateTime.Now - startTime).TotalSeconds, number));
@@ -36,9 +36,9 @@ namespace ConsoleApplication1
 
 			startTime = DateTime.Now;
 			number = FibonacciSeries(0);
-			
-			Console.WriteLine(string.Format("2. End Time {0} -- {1}",(DateTime.Now-startTime).TotalSeconds,number ));
-			
+
+			Console.WriteLine(string.Format("2. End Time {0} -- {1}", (DateTime.Now - startTime).TotalSeconds, number));
+
 			number = 0;
 			number = FibonacciNumber(0);
 			Console.WriteLine(string.Format("3. End Time {0} -- {1}", (DateTime.Now - startTime).TotalSeconds, number));
@@ -51,9 +51,13 @@ namespace ConsoleApplication1
 			// test for list all permutations
 			Console.Write("Input String>");
 			string inputLine = Console.ReadLine();
-			
+
 			List<string> printString = new List<string>();
-			GetPermutations(inputLine.ToArray(),printString);
+			printString = GetPermutations(inputLine.ToArray());
+
+			Console.WriteLine(string.Format("orchestra words are {0}", printString.Count));
+
+			Console.WriteLine(string.Format("{0}",printString.FirstOrDefault(x=>x == "orchestra")));
 			//Recursion rec = new Recursion();
 			//rec.InputSet = rec.MakeCharArray(inputLine);
 			//rec.CalcPermutation(0);
@@ -77,15 +81,15 @@ namespace ConsoleApplication1
 			a = rgx.Replace(a, string.Empty);
 			b = rgx.Replace(b, string.Empty);
 
-			List<KeyValuePair<char, int>> kvp_a = new List<KeyValuePair<char,int>>();
-			List<KeyValuePair<char, int>> kvp_b = new List<KeyValuePair<char,int>>();
+			List<KeyValuePair<char, int>> kvp_a = new List<KeyValuePair<char, int>>();
+			List<KeyValuePair<char, int>> kvp_b = new List<KeyValuePair<char, int>>();
 
 			var sa = a.Where(c => char.IsLetter(c)).OrderBy(c => c).ToArray();
 			var sb = b.Where(x => char.IsLetter(x)).OrderBy(x => x).ToArray();
 
 			foreach (char c in sb)
 			{
-				KeyValuePair<char, int> pairB=new KeyValuePair<char,int>();
+				KeyValuePair<char, int> pairB = new KeyValuePair<char, int>();
 				if (kvp_b.Where(x => x.Key == c).Count() == 0)
 				{
 					pairB = new KeyValuePair<char, int>(c, 1);
@@ -110,7 +114,7 @@ namespace ConsoleApplication1
 				}
 				else
 				{
-					var newpairA = new KeyValuePair<char, int>(pairA.Key, pairA.Value+1);
+					var newpairA = new KeyValuePair<char, int>(pairA.Key, pairA.Value + 1);
 					kvp_a.Remove(pairA);
 					kvp_a.Add(newpairA);
 				}
@@ -149,7 +153,7 @@ namespace ConsoleApplication1
 			int first = f1;
 			int second = f2;
 
-			int result=0;
+			int result = 0;
 
 			if (n == 0)
 				result = f0;
@@ -163,7 +167,7 @@ namespace ConsoleApplication1
 			for (int idx = 3; idx <= n; idx++)
 			{
 				result = first + second;
-				
+
 				first = second;
 				second = result;
 			}
@@ -172,7 +176,7 @@ namespace ConsoleApplication1
 		}
 
 		public static long FibonacciSeries(int n)
-		{						
+		{
 			long a = 0;
 			long b = 1;
 
@@ -184,7 +188,7 @@ namespace ConsoleApplication1
 			}
 			return a;
 
-			
+
 		}
 
 		public static int CalculateWays(int number)
@@ -199,10 +203,10 @@ namespace ConsoleApplication1
 				return num;
 			}
 
-			if(number -1 >=0)
+			if (number - 1 >= 0)
 				CalculateWays(number - 1);
 
-			if(number -2 >=0)
+			if (number - 2 >= 0)
 				CalculateWays(number - 2);
 
 			return num;
@@ -211,34 +215,34 @@ namespace ConsoleApplication1
 		public static void PrintPascalTriangle2(int RowNumber)
 		{
 			//initialize empty print number rows and columns
-			List<List<int>> printNumbers = new List<List<int>>(RowNumber);			
+			List<List<int>> printNumbers = new List<List<int>>(RowNumber);
 
 			// loop through all rows
-			for (int idx = 0; idx <= RowNumber-1; idx++)
+			for (int idx = 0; idx <= RowNumber - 1; idx++)
 			{
 				// initialize currentline with -1, the number -1 will be replaced with actual number
-				List<int> currentLine = Enumerable.Repeat(-1, idx+1).ToList();
+				List<int> currentLine = Enumerable.Repeat(-1, idx + 1).ToList();
 
 				// first number of each row is 1
-				currentLine[0]=1;
+				currentLine[0] = 1;
 
 				// current number position in the current line, start with 1, because the number in position 0 is 1
 				int currentLinePosition = 1;
 
 				// start from line 1
-				if(idx-1>=0)
+				if (idx - 1 >= 0)
 				{
 					List<int> previousLine = printNumbers[idx - 1];
 
-					for (int j = 0; j < previousLine.Count-1; j++)
+					for (int j = 0; j < previousLine.Count - 1; j++)
 					{
 						currentLine[currentLinePosition] = previousLine[j] + previousLine[j + 1];
-						currentLinePosition++;						
+						currentLinePosition++;
 					}
 				}
 
 				// last number of each row is 1
-				currentLine[idx]=1;
+				currentLine[idx] = 1;
 				printNumbers.Add(currentLine);
 			}
 
@@ -247,7 +251,7 @@ namespace ConsoleApplication1
 			{
 				foreach (int a in number)
 				{
-					Console.Write(string.Format("{0}  ",a));
+					Console.Write(string.Format("{0}  ", a));
 				}
 
 				Console.WriteLine();
@@ -338,7 +342,7 @@ namespace ConsoleApplication1
 		{
 			string inputString = Console.ReadLine();
 			string[] values = inputString.Split(' ');
-			if(values.Length ==2)
+			if (values.Length == 2)
 			{
 				int StudentNumber = int.Parse(values[0]);
 				int RequiredNumber = int.Parse(values[1]);
@@ -368,6 +372,20 @@ namespace ConsoleApplication1
 			}
 		}
 
+		#region Run consecutive sequence string
+		/// <summary>
+		/// Write a function that finds the zero-based index of the longest run in a string. 
+		/// A run is a consecutive sequence of the same character. 
+		/// If there is more than one run with the same length, return the index of the first one. 
+		/// For example, IndexOfLongestRun("abbcccddddcccbba") should return 6 as the longest run is dddd and it first appears on index 6.
+		/// </summary>
+		/// <param name="s"></param>
+		/// <returns></returns>
+		private static int IndexOfLongestRun(string s)
+		{
+		}
+		#endregion
+
 		#region print all permutations
 		private static void Swap(ref char a, ref char b)
 		{
@@ -378,12 +396,43 @@ namespace ConsoleApplication1
 			a ^= b;
 		}
 
-		public static void GetPermutations(char[] list, List<string> printString)
+		public static List<string> GetPermutations(char[] list)
 		{
 			int x = list.Length - 1;
+			List<string> printString = new List<string>();
+
 			GetPermutations(list, 0, x, printString);
+
+			return printString;
 		}
 
+		/// <summary>
+		/// If the set just has one element -->
+		//return it.
+		//perm(a) -> a
+
+		//If the set has two characters: for each element in it: return the element, with the permutation of the rest of the elements added, like so:
+
+		//perm(ab) -> 
+
+		//a + perm(b) -> ab 
+
+		//b + perm(a) -> ba 
+
+		//Further: for each character in the set: return a character, concatenated with a perumation of > the rest of the set
+
+		//perm(abc) ->
+
+		//a + perm(bc) --> abc, acb
+
+		//b + perm(ac) --> bac, bca
+
+		//c + perm(ab) --> cab, cba
+
+		//perm(abc...z) -->
+
+		//a + perm(...), b + perm(....) 			
+		/// </summary>		
 		private static void GetPermutations(char[] list, int recursionDepth, int maxDepth, List<string> printString)
 		{
 			if (recursionDepth == maxDepth)
@@ -402,6 +451,6 @@ namespace ConsoleApplication1
 					Swap(ref list[recursionDepth], ref list[i]);
 				}
 		}
-		#endregion 
+		#endregion
 	}
 }
