@@ -64,6 +64,7 @@ namespace ConsoleApplication1
 
 			//Console.Write("# of Permutations: " + rec.PermutationCount);
 
+            Console.WriteLine("Max length of string is : {0}", IndexOfLongestRun("abbcccdddddcccccbba"));
 			Console.ReadLine();
 		}
 
@@ -383,6 +384,36 @@ namespace ConsoleApplication1
 		/// <returns></returns>
 		private static int IndexOfLongestRun(string s)
 		{
+		    int maxLongestIndex = 0;
+		    int maxLength = 0;
+		    int currentLength = 0;
+
+		    for (int i = 0; i < s.Length; i++)
+		    {
+		        if (i == 0)
+		        {
+		            currentLength = 1;
+		            maxLength = 1;
+		        }
+		        else
+		        {
+		            if (s[i] == s[i - 1])
+		            {
+		                currentLength++;
+		                if (maxLength < currentLength)
+		                {
+		                    maxLength = currentLength;
+		                    maxLongestIndex = i-maxLength+1;
+		                }
+		            }
+		            else
+		            {
+		                currentLength = 1;
+		            }
+		        }
+		    }
+
+		    return maxLongestIndex;
 		}
 		#endregion
 
