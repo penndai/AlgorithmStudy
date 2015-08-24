@@ -48,6 +48,18 @@ namespace ConsoleApplication1
 			PrintPascalTriangle();
 			PrintPascalTriangle2(10);
 
+			// test for list all permutations
+			Console.Write("Input String>");
+			string inputLine = Console.ReadLine();
+			
+			List<string> printString = new List<string>();
+			GetPermutations(inputLine.ToArray(),printString);
+			//Recursion rec = new Recursion();
+			//rec.InputSet = rec.MakeCharArray(inputLine);
+			//rec.CalcPermutation(0);
+
+			//Console.Write("# of Permutations: " + rec.PermutationCount);
+
 			Console.ReadLine();
 		}
 
@@ -355,5 +367,41 @@ namespace ConsoleApplication1
 					Console.WriteLine("NO");
 			}
 		}
+
+		#region print all permutations
+		private static void Swap(ref char a, ref char b)
+		{
+			if (a == b) return;
+
+			a ^= b;
+			b ^= a;
+			a ^= b;
+		}
+
+		public static void GetPermutations(char[] list, List<string> printString)
+		{
+			int x = list.Length - 1;
+			GetPermutations(list, 0, x, printString);
+		}
+
+		private static void GetPermutations(char[] list, int recursionDepth, int maxDepth, List<string> printString)
+		{
+			if (recursionDepth == maxDepth)
+			{
+				if (!printString.Contains(new string(list)))
+				{
+					printString.Add(new string(list));
+					Console.WriteLine(list);
+				}
+			}
+			else
+				for (int i = recursionDepth; i <= maxDepth; i++)
+				{
+					Swap(ref list[recursionDepth], ref list[i]);
+					GetPermutations(list, recursionDepth + 1, maxDepth, printString);
+					Swap(ref list[recursionDepth], ref list[i]);
+				}
+		}
+		#endregion 
 	}
 }
