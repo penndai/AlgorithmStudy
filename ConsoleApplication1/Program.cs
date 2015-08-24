@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -483,5 +484,75 @@ namespace ConsoleApplication1
 				}
 		}
 		#endregion
-	}
+
+        #region find two number sum = given value
+        /// <summary>
+        /// Write a function that, given a list and a target sum, returns zero-based indices of any two distinct elements whose sum is equal to the 
+        /// target sum. If there are no such elements, the function should return null.
+        /// For example, FindTwoSum(new List<int>() { 1, 3, 5, 7, 9 }, 12) should return any of the following tuples of indices:
+        /// 1, 4 (3 + 9 = 12)
+        /// 2, 3 (5 + 7 = 12)
+        /// 3, 2 (7 + 5 = 12)
+        /// 4, 1 (9 + 3 = 12)
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="sum"></param>
+        /// <returns></returns>
+	    public static Tuple<int, int> QuickFindTwoSum(IList<int> list, int sum)
+	    {
+            IList<int> dealList = list.OrderBy(x => x).ToList();
+
+            int i = 0;
+            int j = dealList.Count - 1;
+
+            while (i != j)
+            {
+                if (dealList[i] + dealList[j] == sum)
+                {
+                    return new Tuple<int, int>(list.IndexOf(dealList[i]), list.IndexOf(dealList[j]));
+                }
+                else if (dealList[i] + dealList[j] > sum)
+                {
+                    j--;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+            return null;
+	    }
+
+	   
+        public static Tuple<int, int> FindTwoSum(IList<int> list, int sum)
+        {           
+            int maxnumber = list.Max();
+            int submaxnumber = list.OrderByDescending(r => r).Take(2).LastOrDefault();
+
+            int minumnumber = list.Min();
+            int subminnumber = list.OrderBy(r => r).Take(1).LastOrDefault();
+
+            if (sum< minumnumber+subminnumber || sum>maxnumber+submaxnumber)
+            {
+                return null;
+            }
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                for (int j = i + 1; j < list.Count; j++)
+                {
+                    if (list[i] + list[j] == sum)
+                    {
+                        Tuple<int, int> result = Tuple.Create(i, j);
+                        return result;
+                    }
+                }
+                
+            }
+
+            return null;
+        }
+        #endregion
+    }
 }
