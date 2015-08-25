@@ -65,7 +65,27 @@ namespace ConsoleApplication1
 
 			//Console.Write("# of Permutations: " + rec.PermutationCount);
 
-            Console.WriteLine("Max length of string is : {0}", IndexOfLongestRun("abbcccdddddcccccbba"));
+            //int loops = Convert.ToInt16(Console.ReadLine());
+            //int[] numbers = new int[loops];
+
+            //for (int i = 0; i < loops; i++)
+            //{
+            //     numbers[i] = Convert.ToInt16(Console.ReadLine());
+                
+            //}
+
+            //for (int j = 0; j < numbers.Length; j++)
+            //{
+            //    PrintLagestDecentNumber(numbers[j]);
+            //}
+
+		    LargestDecentNumber ldn = new LargestDecentNumber();
+		    Console.WriteLine("Print lagest decent number of 1 : {0}",ldn.PrintLagestDecentNumber(1));
+            Console.WriteLine("Print lagest decent number of 3 : {0}", ldn.PrintLagestDecentNumber(3));
+            Console.WriteLine("Print lagest decent number of 6 : {0}", ldn.PrintLagestDecentNumber(6));
+            Console.WriteLine("Print lagest decent number of 9 : {0}", ldn.PrintLagestDecentNumber(9));
+            Console.WriteLine("Print lagest decent number of 12 : {0}", ldn.PrintLagestDecentNumber(12));
+            Console.WriteLine("Print lagest decent number of 80994 : {0}", ldn.PrintLagestDecentNumber(80994));
 			Console.ReadLine();
 		}
 
