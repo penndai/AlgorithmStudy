@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encryption.cs" />
     <Compile Include="GetTimeInWord.cs" />
     <Compile Include="KaprekarNumber.cs" />
     <Compile Include="LargestDecentNumber.cs" />

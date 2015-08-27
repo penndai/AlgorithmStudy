@@ -27,6 +27,13 @@ namespace ConsoleApplication1
             //{
             //	Console.WriteLine("1<=T<=10");
             //}	
+            #region Encrypt text
+            Encryption obj = new Encryption();
+            obj.TestString = Console.ReadLine();
+            obj.PrintEncryption();
+
+            #endregion
+
             #region Kaprekar Number
             KaprekarNumber kobj = new KaprekarNumber();
             kobj.Min = Int32.Parse(Console.ReadLine());
