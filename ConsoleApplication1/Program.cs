@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Security.AccessControl;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -26,6 +27,27 @@ namespace ConsoleApplication1
             //{
             //	Console.WriteLine("1<=T<=10");
             //}	
+            #region Kaprekar Number
+            KaprekarNumber kobj = new KaprekarNumber();
+            kobj.Min = Int32.Parse(Console.ReadLine());
+            kobj.Max = Int32.Parse(Console.ReadLine());
+            kobj.PrintKaprekarNumber();
+
+            if (kobj.Data.Count == 0)
+            {
+                Console.WriteLine("INVALID RANGE");
+            }
+            else
+            {
+                foreach (var VARIABLE in kobj.Data)
+                {
+                    Console.Write(string.Format("{0} ",VARIABLE));
+                }
+            }
+
+            Console.ReadLine();
+            #endregion
+
             #region Time to Word
             GetTimeInWord gtTimeInWord = new GetTimeInWord();
             int hour = int.Parse(Console.ReadLine());
