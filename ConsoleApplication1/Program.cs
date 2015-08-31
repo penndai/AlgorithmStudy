@@ -27,6 +27,31 @@ namespace ConsoleApplication1
             //{
             //	Console.WriteLine("1<=T<=10");
             //}	
+			MatrixRotation mrObjRotation = new MatrixRotation();
+			string input = Console.ReadLine();
+			string[] rowcols = input.Split(' ');
+			int rowIdx = 0;
+			mrObjRotation.RowNumber = Convert.ToInt32(rowcols[0]);
+			mrObjRotation.ColumnNumber = Convert.ToInt32(rowcols[1]);
+			mrObjRotation.RotationNumer = Convert.ToInt32(rowcols[2]);
+
+			mrObjRotation.CreateEmptyMatrix();
+			string inputRow = Console.ReadLine();
+			while (!string.IsNullOrEmpty(inputRow))
+			{
+				mrObjRotation.CreateMatrix(rowIdx, inputRow);
+
+				inputRow = Console.ReadLine();
+				rowIdx++;
+			}
+
+			//for (int i = 0; i < mrObjRotation.RotationNumer; i++)
+			
+			mrObjRotation.PrintMatrixRotation();
+			
+
+			mrObjRotation.PrintMatrix(mrObjRotation.Matrix_Rotation);
+
             #region Encrypt text
             Encryption obj = new Encryption();
             obj.TestString = Console.ReadLine();
