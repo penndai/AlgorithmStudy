@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Security.AccessControl;
@@ -28,6 +29,7 @@ namespace ConsoleApplication1
             //	Console.WriteLine("1<=T<=10");
 			//}	
 			#region Grid search
+            Console.SetIn(new StreamReader(Console.OpenStandardInput(8192)));
 			GridSearch gsobj = new GridSearch();
 			gsobj.TestCaseNumber = int.Parse(Console.ReadLine());
 
@@ -55,6 +57,8 @@ namespace ConsoleApplication1
 
 				gsobj.IsPatternInLargeGrid();
 			}
+
+            gsobj.PrintResult();
 			Console.ReadLine();
 			#endregion
 

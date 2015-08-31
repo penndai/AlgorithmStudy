@@ -17,14 +17,18 @@ namespace ConsoleApplication1
 		public List<string> LargerGrid;
 		public List<string> PatternGrid;
 
-		public void BuildGrids()
+	    public List<bool> Result = new List<bool>(); 
+		public void PrintResult()
 		{
-
+		    foreach (var VARIABLE in Result)
+		    {
+		        Console.WriteLine("{0}", VARIABLE?"YES":"NO");
+		    }
 		}
 
 		public void IsPatternInLargeGrid()
-		{			
-			int startIdx = -1;
+		{
+		    var find = false;
 
 			if (LargerGrid.Count > 0 && PatternGrid.Count > 0 && TestCaseNumber > 0)
 			{
@@ -32,28 +36,28 @@ namespace ConsoleApplication1
 				{
 					string patternString = PatternGrid[0].ToString();
 					
-					startIdx = LargerGrid[i].IndexOf(patternString);
-					if (startIdx > 0)
-					{
-						for (int j = 1; j < PatternGrid.Count; j++)
-						{
-							if (LargerGrid[i+j].Substring(startIdx, patternString.Length) != PatternGrid[j])
-							{
-								startIdx = -1;
-								break;
-							}
-						}
-					}					
+					var startIdx = LargerGrid[i].IndexOf(patternString, StringComparison.Ordinal);
+				    if (startIdx < 0) continue;
+				    find = true;
+
+				    // if first pattern string find, continue finding other pattern line string
+				    for (var j = 1; j < PatternGrid.Count; j++)
+				    {
+				        if (LargerGrid[i + j].Substring(startIdx, patternString.Length) == PatternGrid[j]) continue;
+				        //set find to false as far as one pattern line string cannot find
+				        find = false;
+				        break;
+				    }
+
+				    if (find)
+				        break;
 				}
 
-				if (startIdx>0)
-					Console.WriteLine("Yes".ToUpper());
-				else
-					Console.WriteLine("No".ToUpper());
+				Result.Add(find);
 			}
 			else
 			{
-				Console.WriteLine("No".ToUpper());
+                Result.Add(false);
 			}
 		}
 	}
