@@ -26,7 +26,39 @@ namespace ConsoleApplication1
             //else
             //{
             //	Console.WriteLine("1<=T<=10");
-            //}	
+			//}	
+			#region Grid search
+			GridSearch gsobj = new GridSearch();
+			gsobj.TestCaseNumber = int.Parse(Console.ReadLine());
+
+			for (int j = 0; j < gsobj.TestCaseNumber; j++)
+			{
+				string[] larger = Console.ReadLine().Split(' ');
+				gsobj.LargerGridRows = int.Parse(larger[0]);
+				gsobj.LargerGridColumns = int.Parse(larger[1]);
+
+				gsobj.LargerGrid = new List<string>();
+				for (int i = 0; i < gsobj.LargerGridRows; i++)
+				{
+					gsobj.LargerGrid.Add(Console.ReadLine());
+				}
+
+				string[] pattern = Console.ReadLine().Split(' ');
+
+				gsobj.PatternGrid = new List<string>();
+				gsobj.PatternGridRows = int.Parse(pattern[0]);
+				gsobj.PatternGridColumns = int.Parse(pattern[1]);
+				for (int i = 0; i < gsobj.PatternGridRows; i++)
+				{
+					gsobj.PatternGrid.Add(Console.ReadLine());
+				}
+
+				gsobj.IsPatternInLargeGrid();
+			}
+			Console.ReadLine();
+			#endregion
+
+			#region Matrix Rotation
 			MatrixRotation mrObjRotation = new MatrixRotation();
 			string input = Console.ReadLine();
 			string[] rowcols = input.Split(' ');
@@ -51,9 +83,10 @@ namespace ConsoleApplication1
 			
 
 			mrObjRotation.PrintMatrix(mrObjRotation.Matrix_Rotation);
+			#endregion
 
-            #region Encrypt text
-            Encryption obj = new Encryption();
+			#region Encrypt text
+			Encryption obj = new Encryption();
             obj.TestString = Console.ReadLine();
             obj.PrintEncryption();
 

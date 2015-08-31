@@ -12,3 +12,7 @@ E:\Algorithm\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
 E:\Algorithm\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
 C:\Penn\Algorithm\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
 C:\Penn\Algorithm\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Penn\Algorithm\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Penn\Algorithm\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Penn\Algorithm\ConsoleApplication1\obj\Debug\AlgorithmCase.csprojResolveAssemblyReference.cache
+C:\Penn\Algorithm\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
