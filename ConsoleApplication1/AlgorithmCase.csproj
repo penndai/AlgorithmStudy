@@ -55,6 +55,7 @@
     <Compile Include="GridSearch.cs" />
     <Compile Include="KaprekarNumber.cs" />
     <Compile Include="LargestDecentNumber.cs" />
+    <Compile Include="LexicographicallyGreaterWord.cs" />
     <Compile Include="MatrixRotation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

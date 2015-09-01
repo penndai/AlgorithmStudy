@@ -14,6 +14,26 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            #region LexicographicallyGreaterWord
+            //test case
+            //5
+            //ab
+            //bb
+            //hefg
+            //dhck
+            //dkhc
+            LexicographicallyGreaterWord lexObj = new LexicographicallyGreaterWord();
+            lexObj.TestCaseNumber = int.Parse(Console.ReadLine());
+            lexObj.EnglishWords = new List<string>();
+            lexObj.LexicographicallyWords = new List<string>();
+            for (int i = 0; i < lexObj.TestCaseNumber; i++)
+            {
+                lexObj.EnglishWords.Add(Console.ReadLine());
+            }
+
+            lexObj.GetLexicographicallyGreaterWord();
+            #endregion
+
             #region Caesar cipher
             CaesarCipher ccobj = new CaesarCipher();
             ccobj.StringLength = int.Parse(Console.ReadLine());
