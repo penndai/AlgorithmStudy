@@ -14,20 +14,6 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Pleas input: ");
-            //int TestCaseNumber = int.Parse(Console.ReadLine());
-
-            //if (TestCaseNumber > 0 && TestCaseNumber <= 10)
-            //{
-            //	for (int idx = 0; idx <= TestCaseNumber; idx++)
-            //	{
-            //		OutPutResult();
-            //	}
-            //}
-            //else
-            //{
-            //	Console.WriteLine("1<=T<=10");
-            //}	
             #region Caesar cipher
             CaesarCipher ccobj = new CaesarCipher();
             ccobj.StringLength = int.Parse(Console.ReadLine());
@@ -36,69 +22,70 @@ namespace ConsoleApplication1
             ccobj.Encryption();
             Console.ReadLine();
             #endregion
+
             #region Grid search
             Console.SetIn(new StreamReader(Console.OpenStandardInput(8192)));
-			GridSearch gsobj = new GridSearch();
-			gsobj.TestCaseNumber = int.Parse(Console.ReadLine());
+            GridSearch gsobj = new GridSearch();
+            gsobj.TestCaseNumber = int.Parse(Console.ReadLine());
 
-			for (int j = 0; j < gsobj.TestCaseNumber; j++)
-			{
-				string[] larger = Console.ReadLine().Split(' ');
-				gsobj.LargerGridRows = int.Parse(larger[0]);
-				gsobj.LargerGridColumns = int.Parse(larger[1]);
+            for (int j = 0; j < gsobj.TestCaseNumber; j++)
+            {
+                string[] larger = Console.ReadLine().Split(' ');
+                gsobj.LargerGridRows = int.Parse(larger[0]);
+                gsobj.LargerGridColumns = int.Parse(larger[1]);
 
-				gsobj.LargerGrid = new List<string>();
-				for (int i = 0; i < gsobj.LargerGridRows; i++)
-				{
-					gsobj.LargerGrid.Add(Console.ReadLine());
-				}
+                gsobj.LargerGrid = new List<string>();
+                for (int i = 0; i < gsobj.LargerGridRows; i++)
+                {
+                    gsobj.LargerGrid.Add(Console.ReadLine());
+                }
 
-				string[] pattern = Console.ReadLine().Split(' ');
+                string[] pattern = Console.ReadLine().Split(' ');
 
-				gsobj.PatternGrid = new List<string>();
-				gsobj.PatternGridRows = int.Parse(pattern[0]);
-				gsobj.PatternGridColumns = int.Parse(pattern[1]);
-				for (int i = 0; i < gsobj.PatternGridRows; i++)
-				{
-					gsobj.PatternGrid.Add(Console.ReadLine());
-				}
+                gsobj.PatternGrid = new List<string>();
+                gsobj.PatternGridRows = int.Parse(pattern[0]);
+                gsobj.PatternGridColumns = int.Parse(pattern[1]);
+                for (int i = 0; i < gsobj.PatternGridRows; i++)
+                {
+                    gsobj.PatternGrid.Add(Console.ReadLine());
+                }
 
-				gsobj.IsPatternInLargeGrid();
-			}
+                gsobj.IsPatternInLargeGrid();
+            }
 
             gsobj.PrintResult();
-			Console.ReadLine();
-			#endregion
+            Console.ReadLine();
+            #endregion
 
-			#region Matrix Rotation
-			MatrixRotation mrObjRotation = new MatrixRotation();
-			string input = Console.ReadLine();
-			string[] rowcols = input.Split(' ');
-			int rowIdx = 0;
-			mrObjRotation.RowNumber = Convert.ToInt32(rowcols[0]);
-			mrObjRotation.ColumnNumber = Convert.ToInt32(rowcols[1]);
-			mrObjRotation.RotationNumer = Convert.ToInt32(rowcols[2]);
+            #region Matrix Rotation
+            MatrixRotation mrObjRotation = new MatrixRotation();
+            string input = Console.ReadLine();
+            string[] rowcols = input.Split(' ');
+            int rowIdx = 0;
+            mrObjRotation.RowNumber = Convert.ToInt32(rowcols[0]);
+            mrObjRotation.ColumnNumber = Convert.ToInt32(rowcols[1]);
+            mrObjRotation.RotationNumer = Convert.ToInt32(rowcols[2]);
 
-			mrObjRotation.CreateEmptyMatrix();
-			string inputRow = Console.ReadLine();
-			while (!string.IsNullOrEmpty(inputRow))
-			{
-				mrObjRotation.CreateMatrix(rowIdx, inputRow);
+            mrObjRotation.CreateEmptyMatrix();
+            string inputRow = Console.ReadLine();
+            while (!string.IsNullOrEmpty(inputRow))
+            {
+                mrObjRotation.CreateMatrix(rowIdx, inputRow);
 
-				inputRow = Console.ReadLine();
-				rowIdx++;
-			}
+                inputRow = Console.ReadLine();
+                rowIdx++;
+            }
 
-			//for (int i = 0; i < mrObjRotation.RotationNumer; i++)
-			
-			mrObjRotation.PrintMatrixRotation();
-			
+            //for (int i = 0; i < mrObjRotation.RotationNumer; i++)
 
-			mrObjRotation.PrintMatrix(mrObjRotation.Matrix_Rotation);
-			#endregion
+            mrObjRotation.PrintMatrixRotation();
 
-			#region Encrypt text
-			Encryption obj = new Encryption();
+
+            mrObjRotation.PrintMatrix(mrObjRotation.Matrix_Rotation);
+            #endregion
+
+            #region Encrypt text
+            Encryption obj = new Encryption();
             obj.TestString = Console.ReadLine();
             obj.PrintEncryption();
 
@@ -118,7 +105,7 @@ namespace ConsoleApplication1
             {
                 foreach (var VARIABLE in kobj.Data)
                 {
-                    Console.Write(string.Format("{0} ",VARIABLE));
+                    Console.Write(string.Format("{0} ", VARIABLE));
                 }
             }
 
@@ -130,10 +117,11 @@ namespace ConsoleApplication1
             int hour = int.Parse(Console.ReadLine());
             int mins = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("{0}",gtTimeInWord.PrintTimeInWord(hour, mins));
+            Console.WriteLine("{0}", gtTimeInWord.PrintTimeInWord(hour, mins));
             Console.WriteLine("Print time words end");
             Console.ReadLine();
             #endregion
+
             #region fast Square Integer
             QuickSquareIntegerSolver qsiSolver = new QuickSquareIntegerSolver();
             int T = int.Parse(Console.ReadLine());
@@ -153,6 +141,7 @@ namespace ConsoleApplication1
             Console.WriteLine("Quick find square integer end.");
             Console.ReadLine();
             #endregion
+
             #region test for Square Integer
             SquareIntegerSolver siSolver = new SquareIntegerSolver();
             int loops = Convert.ToInt16(Console.ReadLine());
@@ -183,16 +172,16 @@ namespace ConsoleApplication1
                     {
                         if (Math.Pow(siSolver.MaxSquareInt, 2) >= min)
                         {
-                            if(!eachCount.Contains(siSolver.MaxSquareInt))
+                            if (!eachCount.Contains(siSolver.MaxSquareInt))
                                 eachCount.Add(siSolver.MaxSquareInt);
 
-                           // Console.WriteLine("Number {0} max sqr Int: {1}", idx, siSolver.MaxSquareInt);
+                            // Console.WriteLine("Number {0} max sqr Int: {1}", idx, siSolver.MaxSquareInt);
                         }
                     }
                 }
 
                 //if(eachCount.Count>0)
-                    result.Add(eachCount);
+                result.Add(eachCount);
             }
 
             foreach (var data in result)
@@ -205,27 +194,36 @@ namespace ConsoleApplication1
             }
 
             #endregion
+
+            #region Time consuming way to calculate the FibonacciSeries
             DateTime startTime = DateTime.Now;
             long number = 0;
             number = CalculateWays(4);
 
             Console.WriteLine(string.Format("1. End Time {0} -- {1}", (DateTime.Now - startTime).TotalSeconds, number));
 
+            #endregion
+
+            #region much quicker way to print all FibonacciSeries
             number = 0;
 
             startTime = DateTime.Now;
             number = FibonacciSeries(0);
 
             Console.WriteLine(string.Format("2. End Time {0} -- {1}", (DateTime.Now - startTime).TotalSeconds, number));
+            #endregion
 
+            #region another quick way to print ll FibonacciSeries
             number = 0;
             number = FibonacciNumber(0);
             Console.WriteLine(string.Format("3. End Time {0} -- {1}", (DateTime.Now - startTime).TotalSeconds, number));
-            //bool flag = AreStringsAnagrams("aba", "baba");
-            //Console.WriteLine(flag);
+           
+            #endregion
 
+            #region print pascal triangle
             PrintPascalTriangle();
             PrintPascalTriangle2(10);
+            #endregion
 
             // test for list all permutations
             Console.Write("Input String>");
@@ -237,26 +235,7 @@ namespace ConsoleApplication1
             Console.WriteLine(string.Format("orchestra words are {0}", printString.Count));
 
             Console.WriteLine(string.Format("{0}", printString.FirstOrDefault(x => x == "orchestra")));
-            //Recursion rec = new Recursion();
-            //rec.InputSet = rec.MakeCharArray(inputLine);
-            //rec.CalcPermutation(0);
-
-            //Console.Write("# of Permutations: " + rec.PermutationCount);
-
-            //int loops = Convert.ToInt16(Console.ReadLine());
-            //int[] numbers = new int[loops];
-
-            //for (int i = 0; i < loops; i++)
-            //{
-            //     numbers[i] = Convert.ToInt16(Console.ReadLine());
-
-            //}
-
-            //for (int j = 0; j < numbers.Length; j++)
-            //{
-            //    PrintLagestDecentNumber(numbers[j]);
-            //}
-
+      
             LargestDecentNumber ldn = new LargestDecentNumber();
             Console.WriteLine("Print lagest decent number of 1 : {0}", ldn.PrintLagestDecentNumber(1));
             Console.WriteLine("Print lagest decent number of 3 : {0}", ldn.PrintLagestDecentNumber(3));
@@ -337,6 +316,7 @@ namespace ConsoleApplication1
 
             return true;
         }
+
         /// <summary>
         /// A frog only moves forward, but it can move in steps 1 inch long or in jumps 2 inches long. A frog can cover the same distance using different combinations of steps and jumps.
         /// Write a function that calculates the number of different combinations a frog can use to cover a given distance.
