@@ -27,8 +27,16 @@ namespace ConsoleApplication1
             //else
             //{
             //	Console.WriteLine("1<=T<=10");
-			//}	
-			#region Grid search
+            //}	
+            #region Caesar cipher
+            CaesarCipher ccobj = new CaesarCipher();
+            ccobj.StringLength = int.Parse(Console.ReadLine());
+            ccobj.RawString = Console.ReadLine();
+            ccobj.RotatedNumber = int.Parse(Console.ReadLine());
+            ccobj.Encryption();
+            Console.ReadLine();
+            #endregion
+            #region Grid search
             Console.SetIn(new StreamReader(Console.OpenStandardInput(8192)));
 			GridSearch gsobj = new GridSearch();
 			gsobj.TestCaseNumber = int.Parse(Console.ReadLine());

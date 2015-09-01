@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaesarCipher.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="GetTimeInWord.cs" />
     <Compile Include="GridSearch.cs" />
