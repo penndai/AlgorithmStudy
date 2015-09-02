@@ -16,12 +16,6 @@ namespace ConsoleApplication1
         {
             #region LexicographicallyGreaterWord
             //test case
-            //5
-            //ab
-            //bb
-            //hefg
-            //dhck
-            //dkhc
             LexicographicallyGreaterWord lexObj = new LexicographicallyGreaterWord();
             lexObj.TestCaseNumber = int.Parse(Console.ReadLine());
             lexObj.EnglishWords = new List<string>();
@@ -31,7 +25,9 @@ namespace ConsoleApplication1
                 lexObj.EnglishWords.Add(Console.ReadLine());
             }
 
+            Console.WriteLine("Start {0}",DateTime.Now);
             lexObj.GetLexicographicallyGreaterWord();
+            Console.WriteLine("End {0}", DateTime.Now);
             #endregion
 
             #region Caesar cipher
