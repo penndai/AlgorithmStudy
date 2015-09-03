@@ -28,6 +28,8 @@ namespace ConsoleApplication1
             Console.WriteLine("Start {0}",DateTime.Now);
             lexObj.GetLexicographicallyGreaterWord();
             Console.WriteLine("End {0}", DateTime.Now);
+
+            
             #endregion
 
             #region Caesar cipher
