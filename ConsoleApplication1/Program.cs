@@ -14,6 +14,18 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            #region Cholocate feast
+            ChocolateFeast chocolateFeast = new ChocolateFeast();
+            chocolateFeast.TestCaseNumber = int.Parse(Console.ReadLine());
+            for (int i = 0; i < chocolateFeast.TestCaseNumber; i++)
+            {
+                chocolateFeast.BuildTestCase(Console.ReadLine());
+            }
+
+            chocolateFeast.PrintChocolateFeast();
+            Console.ReadLine();
+            #endregion
+
             #region LexicographicallyGreaterWord
             //test case
             LexicographicallyGreaterWord lexObj = new LexicographicallyGreaterWord();

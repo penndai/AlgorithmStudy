@@ -13,6 +13,8 @@ namespace ConsoleApplication1
             return (new CaseInsensitiveComparer()).Compare(y, x);
         }
     }
+
+    
     public class LexicographicallyGreaterWord
     {
         public int TestCaseNumber { get; set; }
