@@ -20,3 +20,7 @@ some algorithm study cases, including:
   2, 3 (5 + 7 = 12)
   3, 2 (7 + 5 = 12)
   4, 1 (9 + 3 = 12)
+10. Matrix Rotation (which is most hard so far)
+    Given a 2D matrix, a, of dimension MxN and a positive integer R. You have to rotate the matrix R times and print the resultant matrix. Rotation should be in anti-clockwise direction.
+11. Next lexicographical
+    Given a word w, rearrange the letters of w to construct another word s in such a way that s is lexicographically greater than w. In case of multiple possible answers, find the lexicographically smallest one.
